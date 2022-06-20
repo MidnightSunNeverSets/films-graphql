@@ -5,6 +5,8 @@ import com.midnightsun.films.repos.ActorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ActorService {
     @Autowired
@@ -12,5 +14,9 @@ public class ActorService {
 
     public Actor getActorFromUsername(String username) {
         return repo.findActorByUsername(username);
+    }
+
+    public List<Actor> getActors() {
+        return repo.findAll();
     }
 }

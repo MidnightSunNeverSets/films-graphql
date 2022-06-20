@@ -2,6 +2,7 @@ type Query {
     films: [Film!]
     film(projectName: String!): Film
     actor(username: String!): Actor
+    actors: [Actor!]
 }
 
 type Film {

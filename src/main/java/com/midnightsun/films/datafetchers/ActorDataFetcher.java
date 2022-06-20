@@ -7,6 +7,8 @@ import com.netflix.graphql.dgs.DgsQuery;
 import com.netflix.graphql.dgs.InputArgument;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 @DgsComponent
 public class ActorDataFetcher {
     @Autowired
@@ -15,5 +17,10 @@ public class ActorDataFetcher {
     @DgsQuery(field = "actor")
     private Actor getActor(@InputArgument String username) {
         return actorService.getActorFromUsername(username);
+    }
+
+    @DgsQuery(field = "actors")
+    private List<Actor> getAllActors() {
+        return actorService.getActors();
     }
 }
