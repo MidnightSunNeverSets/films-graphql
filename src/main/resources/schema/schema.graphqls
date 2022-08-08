@@ -1,19 +1,26 @@
 type Query {
-    films: [Film!]
+    films: [Film!]!
     film(projectName: String!): Film
     actor(username: String!): Actor
-    actors: [Actor!]
+    actors: [Actor!]!
 }
 
 type Film {
     title: String!
     projectName: String!
     releaseYear: Int!
+    scenes: [Scene!]!
+    cast: [Actor!]!
 }
 
 type Actor {
     username: String!
     name: String!
+}
+
+type Scene {
+    id: String!
+    description: String
 }
 
 

@@ -24,7 +24,7 @@ public class Film {
             inverseJoinColumns = @JoinColumn(name = "director_username")
     )
     private Set<Director> directors;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "t_filmsactors",
             joinColumns = @JoinColumn(name = "film_project_name"),
