@@ -18,7 +18,7 @@ public class FilmService {
         return repo.getFilms().get(projectName);
     }
 
-    public List<Film> getAllFilms() {
+    public List<Film> getFilms() {
         return new ArrayList<>(repo.getFilms().values());
     }
 

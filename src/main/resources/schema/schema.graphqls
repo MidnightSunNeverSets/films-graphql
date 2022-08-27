@@ -1,5 +1,5 @@
 type Query { # what does this Query type mean? https://graphql.org/learn/schema/#the-query-and-mutation-types
-    films: [Film!]! # This is paginated
+    films(first: Int, after: String): FilmConnection # This is paginated
     film(projectName: String!): Film
     actor(username: String!): Actor
     actors: [Actor!]!
@@ -8,7 +8,7 @@ type Query { # what does this Query type mean? https://graphql.org/learn/schema/
 
 # '!' Indicates something cannot be nullable
 
-type Film {
+type Film @ connection {
     title: String!
     projectName: String!
     releaseYear: Int!
