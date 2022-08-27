@@ -6,7 +6,7 @@ fetch('/graphql', {
     },
 
     body: JSON.stringify({
-        query: 'query FilmsQuery { films { edges { node { title projectName } } } }'
+        query: 'query FilmsQuery { films(first:4) { edges { node { title projectName } } } }'
     })
 })
 .then(response => response.json())
@@ -44,7 +44,7 @@ function getClickedFilm(projectName, title) {
         },
 
         body: JSON.stringify({
-            query: 'query FilmQuery($project_name: String!) { film(projectName: $project_name) { characters { name, playedBy { username, firstName, lastName } }, scenes { id, shots { id } } } }',
+            query: 'query FilmQuery($project_name: String!) { film(projectName: $project_name) { characters { name, playedBy { username, name } }, scenes { id, shots { id } } } }',
             variables: {"project_name": projectName}
         })
     })
