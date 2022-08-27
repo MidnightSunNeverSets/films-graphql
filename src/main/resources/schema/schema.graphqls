@@ -1,9 +1,12 @@
-type Query {
-    films: [Film!]!
+type Query { # what does this Query type mean? https://graphql.org/learn/schema/#the-query-and-mutation-types
+    films: [Film!]! # This is paginated
     film(projectName: String!): Film
     actor(username: String!): Actor
     actors: [Actor!]!
+    director(username: String!): Director
 }
+
+# '!' Indicates something cannot be nullable
 
 type Film {
     title: String!
@@ -11,16 +14,37 @@ type Film {
     releaseYear: Int!
     scenes: [Scene!]!
     cast: [Actor!]!
+    characters: [Character!]!
 }
 
 type Actor {
     username: String!
     name: String!
+    filmography: [Film!]!
+}
+
+type Character {
+    name: String!
+    playedBy: Actor
+    in: Film
 }
 
 type Scene {
     id: String!
     description: String
+    shots: [Shot!]!
+}
+
+type Shot {
+    id: String!
+    description: String!
+    characters: [Character!]!
+}
+
+type Director {
+    username: String!
+    name: String
+    directed: [Film]
 }
 
 

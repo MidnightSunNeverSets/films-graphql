@@ -1,16 +1,16 @@
 package com.midnightsun.films.models;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.LinkedHashSet;
-
+@Builder
 @Getter
+@Setter
 @AllArgsConstructor
-public class Scene {
+public class Character {
     private String id;
-
-    private String description;
-
+    private String name;
+    private Actor playedBy;
 }

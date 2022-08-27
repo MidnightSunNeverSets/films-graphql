@@ -6,8 +6,6 @@ import com.midnightsun.films.services.ActorService;
 import com.netflix.graphql.dgs.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -33,6 +31,6 @@ public class ActorDataFetcher {
         Note, in this case since I'm building the DB at runtime using H2 and inserting them using Spring JPA,
         "foreign keys" are already part of a class, and thus DB technically does not need to be called
          */
-        return film.getCast();
+        return actorService.getFilmCast(film.getProjectName());
     }
 }
